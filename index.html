@@ -536,7 +536,7 @@
 
         .pricing {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 10px;
             margin: 0 0 18px;
         }
@@ -666,7 +666,7 @@
         }
 
         .product:hover {
-            border-color: var(--ink);
+            border-color: rgba(155, 122, 58, 0.52);
             box-shadow: none;
             transform: translateY(-4px);
         }
@@ -718,6 +718,16 @@
             color: var(--ink);
         }
 
+        .product-media::after {
+            position: absolute;
+            right: 18px;
+            bottom: 0;
+            left: 18px;
+            height: 2px;
+            content: "";
+            background: linear-gradient(90deg, transparent, rgba(155, 122, 58, 0.72), transparent);
+        }
+
         .product-media img {
             width: 100%;
             height: 250px;
@@ -736,7 +746,7 @@
 
         .product-kicker {
             display: block;
-            color: var(--muted);
+            color: var(--accent);
             font-size: 10px;
             font-weight: 800;
             letter-spacing: 0.12em;
@@ -834,12 +844,79 @@
             margin-top: 14px;
         }
 
+        .product-prices {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .product-price-card {
+            display: grid;
+            gap: 8px;
+            padding: 12px;
+            border: 1px solid rgba(155, 122, 58, 0.24);
+            border-radius: 14px;
+            background: linear-gradient(180deg, #fffdf8, #fafafa);
+        }
+
+        .product-price-head {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .product-price-head span {
+            display: block;
+            color: var(--accent);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .product-price-head small {
+            display: block;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .product-price-card strong {
+            display: block;
+            color: var(--ink);
+            font-family: inherit;
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .product-price-card > small {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .product-price-card > small b {
+            color: var(--accent);
+        }
+
         .meta-item {
             min-height: 66px;
             padding: 12px;
             border: 1px solid var(--line);
             border-radius: 14px;
             background: var(--soft);
+        }
+
+        .meta-item:hover {
+            border-color: rgba(155, 122, 58, 0.34);
         }
 
         .meta-item span {
@@ -898,11 +975,11 @@
             display: inline-flex;
             width: fit-content;
             align-items: center;
-            border: 1px solid var(--line);
+            border: 1px solid rgba(155, 122, 58, 0.34);
             border-radius: 999px;
             padding: 8px 12px;
-            background: var(--soft);
-            color: var(--ink);
+            background: var(--accent-2);
+            color: var(--accent);
             cursor: pointer;
             font: inherit;
             font-size: 13px;
@@ -1212,6 +1289,42 @@
             cursor: pointer;
             font: inherit;
             font-size: 13px;
+        }
+
+        .cart-summary {
+            display: grid;
+            gap: 6px;
+            padding: 14px;
+            border: 1px solid rgba(155, 122, 58, 0.34);
+            border-radius: 14px;
+            background: var(--accent-2);
+        }
+
+        .cart-summary span {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .cart-summary strong {
+            font-size: 20px;
+            line-height: 1.1;
+        }
+
+        .cart-summary small {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .cart-footer .continue-shopping {
+            width: 100%;
+            min-height: 46px;
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--soft);
+            font-size: 14px;
+            justify-content: center;
         }
 
         .admin-toggle {
@@ -1711,6 +1824,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .product-prices {
+                grid-template-columns: 1fr;
+            }
+
             .detail-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1799,7 +1916,8 @@
             <section class="seo-copy" aria-labelledby="seo-titulo">
                 <p class="eyebrow">Perfumes en Rosario</p>
                 <h2 id="seo-titulo">Fragancias alternativas con entrega inmediata</h2>
-                <p>En Tester Rosario encontr&aacute;s perfumes en Rosario, fragancias alternativas masculinas, femeninas y unisex, opciones para regalo y aromas inspirados para usar todos los d&iacute;as. Consult&aacute; stock, eleg&iacute; tus favoritas y coordin&aacute; la compra por WhatsApp.</p>
+                <p>En Tester Rosario encontr&aacute;s fragancias femeninas, masculinas y unisex, aromas inspirados para todos los d&iacute;as, ocasiones especiales y opciones para regalo.</p>
+                <p>Eleg&iacute; tus favoritas y coordin&aacute; la compra por WhatsApp.</p>
             </section>
 
             <section class="best-sellers" aria-labelledby="best-seller-titulo">
@@ -1807,7 +1925,7 @@
                     <div>
                         <p class="eyebrow">Best seller</p>
                         <h2 id="best-seller-titulo">Los m&aacute;s pedidos</h2>
-                        <p class="section-subtitle">Descubr&iacute; la selecci&oacute;n de perfumes m&aacute;s elegidos por nuestros clientes en las &uacute;ltimas semanas. Explor&aacute; las fragancias que marcaron tendencia en nuestro cat&aacute;logo.</p>
+                        <p class="section-subtitle">Descubr&iacute; las fragancias que marcaron tendencia en nuestro clientes.</p>
                     </div>
                 </div>
                 <div class="best-seller-grid" id="best-seller-grid"></div>
@@ -1830,15 +1948,6 @@
 
                 <div class="pricing" aria-label="Precios y env&iacute;os">
                     <div class="price-item">
-                        <span>Transferencia</span>
-                        <strong>$44.500</strong>
-                    </div>
-                    <div class="price-item">
-                        <span>3 cuotas sin inter&eacute;s</span>
-                        <strong>$16.330 c/u</strong>
-                        <small>Total $48.900</small>
-                    </div>
-                    <div class="price-item">
                         <span>Env&iacute;o Rosario</span>
                         <strong>Gratis</strong>
                     </div>
@@ -1858,14 +1967,6 @@
                         </div>
                         <div class="promo-item">
                             <strong>3 fragancias: $115.000</strong>
-                            <span>Transferencia</span>
-                        </div>
-                        <div class="promo-item">
-                            <strong>4 fragancias: $153.600</strong>
-                            <span>Transferencia</span>
-                        </div>
-                        <div class="promo-item">
-                            <strong>5 fragancias: $191.750</strong>
                             <span>Transferencia</span>
                         </div>
                     </div>
@@ -1906,6 +2007,8 @@
         </div>
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-footer">
+            <div class="cart-summary" id="cart-summary" hidden></div>
+            <button class="continue-shopping" type="button" data-continue-shopping>Seguir agregando fragancias</button>
             <a class="button" id="checkout" href="https://wa.link/4kann3" target="_blank" rel="noreferrer">Comprar por WhatsApp</a>
             <button class="clear-cart" type="button" id="clear-cart">Vaciar carrito</button>
         </div>
@@ -2098,6 +2201,7 @@
         const cartItems = document.querySelector("#cart-items");
         const cartCount = document.querySelector("#cart-count");
         const checkout = document.querySelector("#checkout");
+        const cartSummary = document.querySelector("#cart-summary");
         const whatsappFloat = document.querySelector("#whatsapp-float");
         const clearCart = document.querySelector("#clear-cart");
         const closeCart = document.querySelector("#close-cart");
@@ -2125,8 +2229,9 @@
         const fallbackWhatsapp = "https://wa.link/4kann3";
         const adminPassword = "Losroca2540";
         let activeFilter = "Todo";
-        let cart = [];
+        let cart = JSON.parse(localStorage.getItem("testerRosarioCart") || "[]");
         let activeDetailName = "";
+        let modalHistoryOpen = false;
 
         function normalize(text) {
             return String(text || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
@@ -2134,6 +2239,10 @@
 
         function saveFragrances() {
             localStorage.setItem("testerRosarioFragrances", JSON.stringify(fragrances));
+        }
+
+        function saveCart() {
+            localStorage.setItem("testerRosarioCart", JSON.stringify(cart));
         }
 
         function parseCsv(text) {
@@ -2306,6 +2415,7 @@
 
                 if (sheetFragrances.length) {
                     fragrances = sheetFragrances;
+                    syncCartWithCatalog();
                     refreshCatalogViews();
                     setSheetStatus(`Google Sheets: ${sheetFragrances.length} fragancias`);
                     console.info(`Tester Rosario: ${sheetFragrances.length} fragancias cargadas desde Google Sheets.`);
@@ -2315,6 +2425,7 @@
                     const sheetFragrances = await loadSheetFromGvizJsonp();
                     if (sheetFragrances.length) {
                         fragrances = sheetFragrances;
+                        syncCartWithCatalog();
                         refreshCatalogViews();
                         setSheetStatus(`Google Sheets: ${sheetFragrances.length} fragancias`);
                         console.info(`Tester Rosario: ${sheetFragrances.length} fragancias cargadas desde Google Sheets.`);
@@ -2345,12 +2456,16 @@
                 const matchesFilter = activeFilter === "Todo" || item.gender === activeFilter;
                 const searchable = normalize(`${item.name} ${item.gender} ${item.family} ${item.season} ${item.moment}`);
                 return matchesFilter && searchable.includes(query);
+            }).sort((a, b) => {
+                const stockA = Number(a.stock) > 0 ? 0 : 1;
+                const stockB = Number(b.stock) > 0 ? 0 : 1;
+                return stockA - stockB || a.name.localeCompare(b.name);
             });
 
             catalog.innerHTML = visible.map((item) => {
                 const isOutOfStock = Number(item.stock) <= 0;
                 return `
-                <article class="product ${isOutOfStock ? "out-of-stock" : ""}" data-gender="${item.gender}">
+                <article class="product ${isOutOfStock ? "out-of-stock" : ""}" data-gender="${item.gender}" data-name="${item.name}">
                     <div class="product-media">
                         ${item.image ? `<img src="${item.image}" alt="${item.name}">` : `<div class="product-placeholder">${item.name.charAt(0)}</div>`}
                         <span class="product-tag">${item.gender}</span>
@@ -2361,6 +2476,22 @@
                             <span class="product-kicker">Fragancia inspirada en</span>
                             <strong class="product-name">${item.name}</strong>
                             <p>${item.family}. Ideal para ${item.season.toLowerCase()} con perfil de uso ${item.moment.toLowerCase()}.</p>
+                            <div class="product-prices" aria-label="Precios">
+                                <div class="product-price-card">
+                                    <div class="product-price-head">
+                                        <span>Mejor precio<small>Pagando por transferencia</small></span>
+                                    </div>
+                                    <strong>$44.500</strong>
+                                    <small>Precio de lista: <b>$48.990</b></small>
+                                </div>
+                                <div class="product-price-card">
+                                    <div class="product-price-head">
+                                        <span>3 cuotas<small>Sin inter&eacute;s</small></span>
+                                    </div>
+                                    <strong>$16.330 c/u</strong>
+                                    <small>Total <b>$48.990</b></small>
+                                </div>
+                            </div>
                             <div class="product-meta" aria-label="Datos de disponibilidad">
                                 <div class="meta-item">
                                     <span>Estaci&oacute;n</span>
@@ -2483,10 +2614,39 @@
                 }
             });
             saveFragrances();
+            saveCart();
             renderCatalog();
             renderBestSellers();
             renderCart();
             renderAdminList();
+        }
+
+        function pushModalHistory(type) {
+            if (modalHistoryOpen) {
+                return;
+            }
+
+            history.pushState({ testerRosarioModal: type }, "", window.location.href);
+            modalHistoryOpen = true;
+        }
+
+        function clearModalHistoryFlag() {
+            modalHistoryOpen = false;
+        }
+
+        function scrollToCatalogItems() {
+            catalog.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        function syncCartWithCatalog() {
+            cart = cart.filter((cartItem) => fragrances.some((item) => item.name === cartItem.name && Number(item.stock) > 0));
+            cart.forEach((cartItem) => {
+                const updated = fragrances.find((item) => item.name === cartItem.name);
+                if (updated) {
+                    Object.assign(cartItem, updated, { quantity: Math.min(cartItem.quantity, Number(updated.stock)) });
+                }
+            });
+            saveCart();
         }
 
         function openDetail(name) {
@@ -2538,30 +2698,63 @@
             detailPanel.setAttribute("aria-hidden", "false");
             detailAdd.disabled = Number(item.stock) <= 0;
             detailAdd.textContent = Number(item.stock) > 0 ? "Agregar al carrito" : "Sin stock";
+            pushModalHistory("detail");
         }
 
-        function closeDetailPanel() {
+        function closeDetailPanel(skipHistory = false) {
             detailBackdrop.classList.remove("open");
             detailPanel.classList.remove("open");
             detailPanel.setAttribute("aria-hidden", "true");
+            clearModalHistoryFlag();
+            if (!skipHistory && history.state && history.state.testerRosarioModal === "detail") {
+                history.back();
+            }
         }
 
         function openCart() {
             cartPanel.classList.add("open");
             cartBackdrop.classList.add("open");
             cartPanel.setAttribute("aria-hidden", "false");
+            pushModalHistory("cart");
         }
 
-        function closeCartPanel() {
+        function closeCartPanel(skipHistory = false) {
             cartPanel.classList.remove("open");
             if (!adminPanel.classList.contains("open")) {
                 cartBackdrop.classList.remove("open");
             }
             cartPanel.setAttribute("aria-hidden", "true");
+            clearModalHistoryFlag();
+            if (!skipHistory && history.state && history.state.testerRosarioModal === "cart") {
+                history.back();
+            }
         }
 
         function getCartTotal() {
             return cart.reduce((total, item) => total + item.quantity, 0);
+        }
+
+        function formatPrice(value) {
+            return `$${value.toLocaleString("es-AR")}`;
+        }
+
+        function getAppliedPromo(total) {
+            if (total >= 5) {
+                return { label: "Promo 5 fragancias", total: 191750, detail: "5 fragancias por transferencia" };
+            }
+            if (total === 4) {
+                return { label: "Promo 4 fragancias", total: 153600, detail: "4 fragancias por transferencia" };
+            }
+            if (total === 3) {
+                return { label: "Promo 3 fragancias", total: 115000, detail: "3 fragancias por transferencia" };
+            }
+            if (total === 2) {
+                return { label: "Promo 2 fragancias", total: 74000, detail: "2 fragancias por transferencia" };
+            }
+            if (total === 1) {
+                return { label: "Precio unitario", total: 44500, detail: "1 fragancia por transferencia" };
+            }
+            return { label: "Sin fragancias", total: 0, detail: "" };
         }
 
         function getPromoProgress(total) {
@@ -2593,24 +2786,12 @@
             }
 
             const lines = cart.map((item) => `- ${item.quantity} x ${item.name} (${item.gender})`);
+            const promo = getAppliedPromo(getCartTotal());
             const message = [
                 "Hola Tester Rosario, quiero comprar estas fragancias:",
                 ...lines,
                 "",
-                "Precios:",
-                "Transferencia: $44.500",
-                "3 cuotas sin interes de $16.330 (total $48.900)",
-                "Envio gratis en Rosario",
-                "Resto del pais: $4.000",
-                "",
-                "Promos 100ML:",
-                "2 fragancias: $74.000 por transferencia o $85.990 en 3 cuotas sin interes",
-                "3 fragancias: $115.000 por transferencia",
-                "4 fragancias: $153.600 por transferencia",
-                "5 fragancias: $191.750 por transferencia",
-                "Envio incluido en Rosario | Resto del pais: $4.000",
-                "",
-                "Me pasan disponibilidad y total?"
+                `Promo aplicada: ${promo.label} - ${formatPrice(promo.total)}`
             ].join("\n");
 
             const phonePath = whatsappNumber ? `/${whatsappNumber}` : "/";
@@ -2620,6 +2801,8 @@
         function renderCart() {
             const total = getCartTotal();
             const promo = getPromoProgress(total);
+            const appliedPromo = getAppliedPromo(total);
+            saveCart();
             cartCount.textContent = total;
             checkout.href = getWhatsappUrl();
             whatsappFloat.href = getWhatsappUrl();
@@ -2627,13 +2810,21 @@
 
             if (!cart.length) {
                 cartItems.innerHTML = '<p class="cart-empty">Todav&iacute;a no agregaste fragancias.</p>';
+                cartSummary.hidden = true;
                 return;
             }
+
+            cartSummary.hidden = false;
+            cartSummary.innerHTML = `
+                <span>Total estimado</span>
+                <strong>${formatPrice(appliedPromo.total)}</strong>
+                <small>${appliedPromo.label} · ${appliedPromo.detail}</small>
+            `;
 
             const promoHtml = `
                 <div class="promo-progress">
                     <h3>Tu ahorro va creciendo</h3>
-                    <p>Sum&aacute; fragancias y desbloque&aacute; mejores precios.</p>
+                    <p>Ahora pagar&iacute;as ${formatPrice(appliedPromo.total)}. Sum&aacute; fragancias y desbloque&aacute; mejores precios.</p>
                     <div class="progress-track" aria-hidden="true">
                         <div class="progress-fill" style="width: ${promo.percent}%"></div>
                     </div>
@@ -2649,7 +2840,6 @@
                         <strong>${promo.next.title}</strong>
                         <span>${promo.next.detail}</span>
                         <span class="saving-pill">${promo.next.saving}</span>
-                        <button class="continue-shopping" type="button" data-continue-shopping>Seguir agregando</button>
                     </div>
                 </div>
             `;
@@ -2713,12 +2903,24 @@
         catalog.addEventListener("click", (event) => {
             const addButton = event.target.closest("[data-add]");
             const detailButton = event.target.closest("[data-detail]");
+            const productCard = event.target.closest(".product");
             if (addButton) {
+                event.stopPropagation();
                 addToCart(addButton.dataset.add);
+                return;
             }
 
             if (detailButton) {
+                event.stopPropagation();
                 openDetail(detailButton.dataset.detail);
+                return;
+            }
+
+            if (productCard) {
+                const name = productCard.dataset.name;
+                if (name) {
+                    openDetail(name);
+                }
             }
         });
 
@@ -2746,8 +2948,18 @@
 
             if (continueShopping) {
                 closeCartPanel();
-                document.querySelector("#catalogo").scrollIntoView({ behavior: "smooth" });
+                scrollToCatalogItems();
             }
+        });
+
+        document.querySelector(".cart-footer").addEventListener("click", (event) => {
+            const continueShopping = event.target.closest("[data-continue-shopping]");
+            if (!continueShopping) {
+                return;
+            }
+
+            closeCartPanel();
+            scrollToCatalogItems();
         });
 
         openCartButtons.forEach((button) => button.addEventListener("click", openCart));
@@ -2758,6 +2970,7 @@
         });
         clearCart.addEventListener("click", () => {
             cart = [];
+            saveCart();
             renderCart();
         });
 
@@ -2873,6 +3086,18 @@
             closeDetailPanel();
         });
 
+        window.addEventListener("popstate", () => {
+            if (cartPanel.classList.contains("open")) {
+                closeCartPanel(true);
+            }
+
+            if (detailPanel.classList.contains("open")) {
+                closeDetailPanel(true);
+            }
+
+            clearModalHistoryFlag();
+        });
+
         search.addEventListener("input", () => {
             renderCatalog();
             renderSearchResults();
@@ -2901,5 +3126,6 @@
     </script>
 </body>
 </html>
+
 
 
