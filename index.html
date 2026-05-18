@@ -30,6 +30,12 @@
             box-sizing: border-box;
         }
 
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             margin: 0;
             font-family: "Inter", "Segoe UI", Arial, sans-serif;
@@ -98,6 +104,7 @@
         .nav {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             gap: 8px;
             color: var(--muted);
             font-size: 14px;
@@ -891,7 +898,7 @@
             color: var(--ink);
             font-family: inherit;
             font-weight: 900;
-            font-size: 20px;
+            font-size: clamp(16px, 4.8vw, 20px);
             line-height: 1;
             white-space: nowrap;
         }
@@ -1749,9 +1756,13 @@
 
             .nav {
                 width: 100%;
-                justify-content: space-between;
-                gap: 2px;
+                justify-content: flex-start;
+                gap: 6px;
                 font-size: 13px;
+            }
+
+            .nav a {
+                padding: 8px 9px;
             }
 
             .header-search {
@@ -1826,6 +1837,11 @@
 
             .product-prices {
                 grid-template-columns: 1fr;
+            }
+
+            .product-price-card strong,
+            .product-price-card > small {
+                white-space: normal;
             }
 
             .detail-grid {
@@ -3126,6 +3142,3 @@
     </script>
 </body>
 </html>
-
-
-
