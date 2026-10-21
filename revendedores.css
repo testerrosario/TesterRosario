@@ -1,0 +1,16 @@
+.reseller-account-panel {margin: 20px 0; padding: 22px; border: 1px solid #ded8cf; border-radius: 16px; background: #faf8f5;}
+.reseller-account-bar {display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.reseller-account-panel input, #reseller-customer-form input {display:block;width:100%;padding:12px;margin:8px 0 16px;border:1px solid #c9c1b5;border-radius:8px;font:inherit;box-sizing:border-box;}
+.reseller-account-panel [hidden] {display:none!important;}
+.reseller-order {padding:16px 0;border-bottom:1px solid #ded8cf;}
+.reseller-order p {margin:8px 0;overflow-wrap:anywhere;}
+#reseller-account-status,#reseller-login-error {line-height:1.5;}
+#reseller-customer-form {margin:20px 0;}
+#reseller-send-saved {margin:12px 0;}
+#wholesale-code {width:100%;}
+.reseller-register {max-width:760px;margin:24px auto;}
+.reseller-registration-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;}
+.reseller-registration-grid label {display:block;min-width:0;}
+.reseller-registration-grid input {box-sizing:border-box;max-width:100%;width:100%;margin:8px 0;}
+.reseller-register[hidden] {display:none!important;}
+@media(max-width:600px){.reseller-registration-grid {grid-template-columns:1fr;}}
