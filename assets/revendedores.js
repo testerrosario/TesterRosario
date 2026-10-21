@@ -37,7 +37,7 @@
         if (!orders.length) {list.textContent='Todavía no hay pedidos registrados.';return;}
         for (const order of orders) {
             const card=document.createElement('article');card.className='reseller-order';
-            const title=document.createElement('strong');title.textContent=`Pedido ${order.id.slice(0,8)} · ${order.status}`;
+            const title=document.createElement('strong');title.textContent=`Pedido ${order.id.slice(0,8).toUpperCase()} · ${order.status}`;
             const details=document.createElement('p');details.textContent=`${new Date(order.created).toLocaleDateString('es-AR')} · ${order.customer.name}${order.reseller ? ' · Revendedor: '+order.reseller : ''} · ${formatPrice(order.total)} en productos por transferencia`;
             const items=document.createElement('p');items.textContent=order.items.map(item=>`${item.quantity} × ${item.name} · 100 ml · ${item.mode==='instant'?'Entrega inmediata':'Por encargue'}`).join(' / ');
             card.append(title,details,items);list.append(card);
@@ -86,10 +86,10 @@
             const button=wholesaleCheckout;button.disabled=true;status('Registrando pedido…');
             try {
                 const {order}=await api('orders',{...payload,requestKey});
-                const message=`Hola Tester Rosario, registré el pedido ${order.id}.\nRevendedor: ${user.name} (${user.email})\nComprador: ${payload.customer.name} · ${payload.customer.phone}\n${payload.items.map(item=>`- ${item.quantity} x ${item.name} (100 ml, ${item.mode==='instant'?'entrega inmediata':'por encargue'})`).join('\n')}\nProductos por transferencia: ${formatPrice(order.total)}\nPendiente de confirmar stock, pago y envío.`;
+                const message=`Hola Tester Rosario, registré el pedido ${order.id.slice(0,8).toUpperCase()}.\nRevendedor: ${user.name} (${user.email})\nComprador: ${payload.customer.name} · ${payload.customer.phone}\n${payload.items.map(item=>`- ${item.quantity} x ${item.name} (100 ml, ${item.mode==='instant'?'entrega inmediata':'por encargue'})`).join('\n')}\nProductos por transferencia: ${formatPrice(order.total)}\nPendiente de confirmar stock, pago y envío.`;
                 const link=byId('reseller-send-saved');link.href=`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;link.hidden=false;
                 wholesaleCart=[];renderWholesaleCart();form.reset();requestKey=null;lastPayload='';
-                status(`Pedido ${order.id.slice(0,8)} registrado. Podés enviarlo por WhatsApp.`);
+                status(`Pedido ${order.id.slice(0,8).toUpperCase()} registrado. Podés enviarlo por WhatsApp.`);
                 await loadOrders();
             } catch(error){status(error.message);}
             finally{button.disabled=false;}
